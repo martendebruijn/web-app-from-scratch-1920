@@ -3,6 +3,10 @@ let argument = 'involvedMaker=Rembrandt+van+Rijn';
 let objects = [];
 let i = 0;
 
+const render = function(template, node) {
+  node.style.backgroundColor = template;
+};
+
 fetch(
   `https://www.rijksmuseum.nl/api/nl/collection?key=${key}&involvedMaker=Vincent+van+Gogh`
 )
@@ -46,3 +50,6 @@ fetch(
         })
     );
   });
+
+let test = document.createElement('img');
+document.body.appendChild(test);

@@ -2,8 +2,14 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.bar {
+.colorBlock {
   height: 3em;
-  width: 30em;
+  width: 3em;
   border: 2px solid black;
+  margin: 0.5em;
+}
+
+.colorWrapper {
+  display: -webkit-box;
+  display: flex;
 }

@@ -1,7 +1,6 @@
 /* TO DO:
 [] REWRITE THIS CODE BELOW
 [] PASS THE RESULT HEX ON TO THE API FETCH
-
 */
 const rgbToHex = function(rgb) {
   let hex = Number(rgb).toString(16);

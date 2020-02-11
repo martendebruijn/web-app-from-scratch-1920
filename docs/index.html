@@ -13,6 +13,31 @@
     <title>Web App From Scratch - Minor Web Development - CMD Amsterdam</title>
   </head>
   <body>
+    <div>
+      <div>
+        <div>
+          <p id="redOutput">0</p>
+          <!-- prettier-ignore -->
+          <input id="red" class="color-slider" type="range" min="0" max="255" />
+        </div>
+        <div>
+          <p id="greenOutput">0</p>
+          <!-- prettier-ignore -->
+          <input id="green" class="color-slider" type="range" min="0" max="255" />
+        </div>
+        <div>
+          <p id="blueOutput">0</p>
+          <!-- prettier-ignore -->
+          <input id="blue" class="color-slider" type="range" min="0" max="255" />
+        </div>
+      </div>
+      <div class="result-color"></div>
+    </div>
+    <button>Search</button>
+
     <script src="./js/app.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/render.js"></script>
   </body>
 </html>

@@ -19,10 +19,10 @@ Bij deze applicatie maak ik gebruik van de API van het Rijksmuseum. Deze API is 
 Om gebruik te maken van de API van het Rijksmuseum heeft men een key nodig. Deze kan men aanvragen bij de gevanceerde account instellingen op de site van het Rijksumseum.
 https://www.rijksmuseum.nl/en/rijksstudio/
 
-## Actors
+## Actor Diagram
 ![Actor Diagram](./actor-diagram.png)
 
-## Interaction
+## Interaction Diagram
 ![Interaction Diagram](./interaction-diagram.png)
 
 ## Sources

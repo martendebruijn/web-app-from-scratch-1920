@@ -6,7 +6,7 @@ function rgbToHex(rgb) {
   }
   return hex;
 }
-
+// some random comment
 function changeToHex(r, g, b) {
   const red = rgbToHex(r);
   const green = rgbToHex(g);

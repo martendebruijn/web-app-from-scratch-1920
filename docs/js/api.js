@@ -1,3 +1,12 @@
+// import { hexColor } from './color.js';
+
+const searchBtn = document.querySelector('#searchBtn');
+searchBtn.addEventListener('click', searchPaintings);
+
+function searchPaintings() {
+  console.log(hexColor);
+}
+
 const requestPaintings = function() {
   const key = 'JeYMqBl9';
   const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection?key=';

@@ -1,12 +1,34 @@
 # Web App From Scratch - Marten de Bruijn
 ## Live Demo
-[Live Demo Link](#)
+[Live Demo Link](https://martendebruijn.github.io/web-app-from-scratch-1920/)
+
+## Table of contents
+
+## Description
+In deze applicatie kan men schilderijen van het Rijksmuseum zoeken bij kleur.
+
 ## Goal of the application
-## Actors
+Men een andere manier geven hoe zij kunst ontdekken.
+
+## Usage
+
+
 ## API
-## Interaction
-## Best Practices
-## Feature Whislist
+Bij deze applicatie maak ik gebruik van de API van het Rijksmuseum. Deze API is een set van meer dan 110,000 beschrijvingen en digitale afbeeldingen van kunstobjecten van de collectie van het Rijksmuseum. De kunstwerken dateren van lang geleden tot eind 19e eeuw. Vanwege copyright restricties zijn kunstwerken van de 20e en 21e eeuw niet toegevoegd in deze API. 
+
+Om gebruik te maken van de API van het Rijksmuseum heeft men een key nodig. Deze kan men aanvragen bij de gevanceerde account instellingen op de site van het Rijksumseum.
+https://www.rijksmuseum.nl/en/rijksstudio/
+
+## Actor Diagram
+![Actor Diagram](./actor-diagram.png)
+
+## Interaction Diagram
+![Interaction Diagram](./interaction-diagram.png)
+
+## Sources
+https://www.rijksmuseum.nl/nl/data
+
+<!-- ## Feature Whislist -->
 
 
 <!-- Add a link to your live demo in Github Pages 🌐-->

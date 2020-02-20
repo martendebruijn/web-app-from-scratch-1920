@@ -16,3 +16,11 @@ body > div > div > div {
 .resultColor {
   background-color: black;
 }
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}

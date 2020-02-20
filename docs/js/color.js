@@ -50,5 +50,6 @@ export function colorToHex() {
   const redValue = red.value;
   const greenValue = green.value;
   const blueValue = blue.value;
-  console.log(changeToHex(redValue, greenValue, blueValue));
+  const hexColor = changeToHex(redValue, greenValue, blueValue);
+  return hexColor.toUpperCase(); //Rijksmuseum API accepteert alleen hoofdletters (+ cijfers)
 }

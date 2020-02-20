@@ -1,19 +1,17 @@
 import { colorToHex } from './color.js';
 
-const searchBtn = document.querySelector('#searchBtn');
-searchBtn.addEventListener('click', colorToHex);
-
-function searchPaintings() {
-  console.log(hexColor);
-}
-
 const requestPaintings = function() {
   const key = 'JeYMqBl9';
   const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection?key=';
-  const resultAmount = '&ps=30';
-  const colorProperty = '&f.normalized32Colors.hex=%234279DB';
+  const amountProperty = '&ps=';
+  const amount = 10;
+  const colorProperty = '&f.normalized32Colors.hex=%23';
+  const color = colorToHex();
+  // const color = '737C84';
 
-  fetch(baseUrl + key + resultAmount + colorProperty)
+  console.log(baseUrl + key + amountProperty + amount + colorProperty + color);
+
+  fetch(baseUrl + key + amountProperty + amount + colorProperty + color)
     .then(response => {
       return response.json();
     })
@@ -22,4 +20,5 @@ const requestPaintings = function() {
     });
 };
 
-// requestPaintings();
+const searchBtn = document.querySelector('#searchBtn');
+searchBtn.addEventListener('click', requestPaintings);

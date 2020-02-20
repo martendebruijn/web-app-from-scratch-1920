@@ -1,4 +1,5 @@
 import { colorToHex } from './color.js';
+import { data } from './data.js';
 
 const requestPaintings = function() {
   const key = 'JeYMqBl9';
@@ -13,10 +14,18 @@ const requestPaintings = function() {
 
   fetch(baseUrl + key + amountProperty + amount + colorProperty + color)
     .then(response => {
+      // console.log(response.json());
       return response.json();
     })
-    .then(myJson => {
-      console.log(myJson);
+    .then(result => {
+      if (result.artObjects.length == 0) {
+        const feedback = 'Geen schilderijen gevonden bij deze kleur';
+        console.log(feedback);
+      } else {
+        console.log(result);
+        console.log(data.filter(result));
+        return result;
+      }
     });
 };
 

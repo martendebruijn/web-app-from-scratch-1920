@@ -1,4 +1,4 @@
-import { color } from './color.js';
+import { color, getClosestColor } from './color.js';
 import { data } from './data.js';
 import { render } from './render.js';
 
@@ -8,7 +8,8 @@ const requestPaintings = function() {
   const amountProperty = '&ps=';
   const amount = 10;
   const colorProperty = '&f.normalized32Colors.hex=%23';
-  const _color = color.colorToHex();
+  const closestColor = getClosestColor();
+  const _color = color.fullHex(closestColor.r, closestColor.g, closestColor.b);
   // const color = '737C84';
 
   console.log(baseUrl + key + amountProperty + amount + colorProperty + _color);

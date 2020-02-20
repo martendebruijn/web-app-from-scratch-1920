@@ -5,7 +5,7 @@ export const color = {
     if (hex.length < 2) {
       hex = '0' + hex;
     }
-    return hex;
+    return hex.toUpperCase();
   },
   fullHex: function(r, g, b) {
     const red = color.rgbToHex(r);
@@ -40,6 +40,7 @@ export const color = {
     color.changeValue(greenSlider, greenOutput);
     color.changeValue(blueSlider, blueOutput);
   },
+  // colorToHex is overbodig geworden
   colorToHex: function() {
     const red = document.querySelector('#red');
     const green = document.querySelector('#green');
@@ -89,37 +90,31 @@ function rijksmuseumColorsToRgb() {
   rijksmuseumColorsHex.map(item => rijksmuseumRgb.push(hexToRgb(item)));
   return rijksmuseumRgb;
 }
+//moet pas gebeuren wanneer er op search gedrukt wordt.
+export function getClosestColor() {
+  const closest = rijksmuseumColorsToRgb().reduce(function(prev, curr) {
+    const red = document.querySelector('#red');
+    const green = document.querySelector('#green');
+    const blue = document.querySelector('#blue');
+    const redValue = red.value;
+    const greenValue = green.value;
+    const blueValue = blue.value;
+    return colorDifference(
+      redValue,
+      greenValue,
+      blueValue,
+      curr.r,
+      curr.g,
+      curr.b
+    ) < colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b)
+      ? curr
+      : prev;
+  });
+  console.log(closest);
+  return closest;
+}
 
-console.log(
-  colorDifference(
-    255,
-    255,
-    255,
-    rijksmuseumColorsToRgb()[0].r,
-    rijksmuseumColorsToRgb()[0].g,
-    rijksmuseumColorsToRgb()[0].b
-  )
-);
-console.log(
-  colorDifference(
-    255,
-    255,
-    255,
-    rijksmuseumColorsToRgb()[1].r,
-    rijksmuseumColorsToRgb()[1].g,
-    rijksmuseumColorsToRgb()[1].b
-  )
-); //deze moet winnen
-
-const closest = rijksmuseumColorsToRgb().reduce(function(prev, curr) {
-  return colorDifference(255, 255, 255, curr.r, curr.g, curr.b) <
-    colorDifference(255, 255, 255, prev.r, prev.g, prev.b)
-    ? curr
-    : prev;
-});
-
-console.log(closest);
-console.table(rijksmuseumColorsToRgb());
+// console.table(rijksmuseumColorsToRgb());
 
 /* https://www.reddit.com/r/learnprogramming/comments/18vjlm/javascript_find_closest_color_in_an_array_of/ */
 

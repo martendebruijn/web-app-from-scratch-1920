@@ -13,29 +13,41 @@
     <title>Web App From Scratch - Minor Web Development - CMD Amsterdam</title>
   </head>
   <body>
+    <h1>Ontdek het Rijksmuseum bij kleur!</h1>
+    <h3>
+      *Het Rijksmuseum labelt haar archief in een selectief aantal kleuren,
+      hierdoor kan er niet daadwerkelijk naar iedere kleur gezocht worden. Het
+      dichtsbijzijnde kleur-label wordt gekozen en opgezocht.
+    </h3>
     <div>
       <div>
         <div>
+          <p>Rood:</p>
           <p id="redOutput">0</p>
           <!-- prettier-ignore -->
           <input id="red" class="color-slider" type="range" min="0" max="255" value="0"/>
         </div>
         <div>
+          <p>Groen:</p>
           <p id="greenOutput">0</p>
           <!-- prettier-ignore -->
           <input id="green" class="color-slider" type="range" min="0" max="255" value="0"/>
         </div>
         <div>
+          <p>Blauw:</p>
           <p id="blueOutput">0</p>
           <!-- prettier-ignore -->
           <input id="blue" class="color-slider" type="range" min="0" max="255" value="0"/>
         </div>
       </div>
+      <p>Gekozen kleur:</p>
       <span class="resultColor square"></span>
+      <p>Gezochte kleur:</p>
       <span class="searchColor square"></span>
     </div>
     <button id="searchBtn">Search</button>
 
+    <p>Uitkomst:</p>
     <div id="wrapper"></div>
     <!-- <a href="#nijlpaard">link</a> -->
 

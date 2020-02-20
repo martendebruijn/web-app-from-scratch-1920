@@ -1,4 +1,4 @@
-export var data = {
+export const data = {
   filter: function(data) {
     console.log('data: ' + data);
     let filter = [];

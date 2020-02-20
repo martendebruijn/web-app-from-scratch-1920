@@ -1,3 +1,3 @@
-import { changeFullColorValues } from './color.js';
+import { color } from './color.js';
 
-changeFullColorValues();
+color.fullValue();

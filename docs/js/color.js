@@ -6,7 +6,7 @@ function rgbToHex(rgb) {
   }
   return hex;
 }
-// some random comment
+
 function changeToHex(r, g, b) {
   const red = rgbToHex(r);
   const green = rgbToHex(g);
@@ -14,49 +14,41 @@ function changeToHex(r, g, b) {
   return red + green + blue;
 }
 
-function __test(x) {
-  const map = new Map(Object.entries(x));
-  console.log(map);
-  return map;
+function changeColorValue(sliderEl, outputEl) {
+  sliderEl.oninput = function input() {
+    const colorValue = this.value;
+    const result = document.querySelector('.resultColor');
+    const red = document.querySelector('#red');
+    const green = document.querySelector('#green');
+    const blue = document.querySelector('#blue');
+    const redValue = red.value;
+    const greenValue = green.value;
+    const blueValue = blue.value;
+
+    outputEl.innerText = colorValue;
+    result.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  };
 }
 
-export function choose() {
-  const sliders = [
-    {
-      sliderEl: document.querySelector('#red'),
-      outputEl: document.querySelector('#redOutput'),
-    },
-    {
-      sliderEl: document.querySelector('#green'),
-      outputEl: document.querySelector('#greenOutput'),
-    },
-    {
-      sliderEl: document.querySelector('#blue'),
-      outputEl: document.querySelector('#blueOutput'),
-    },
-  ];
+export function changeFullColorValues() {
+  const redSlider = document.querySelector('#red');
+  const redOutput = document.querySelector('#redOutput');
+  const greenSlider = document.querySelector('#green');
+  const greenOutput = document.querySelector('#greenOutput');
+  const blueSlider = document.querySelector('#blue');
+  const blueOutput = document.querySelector('#blueOutput');
 
-  const rgbColor = { red: 0, green: 0, blue: 0 };
+  changeColorValue(redSlider, redOutput);
+  changeColorValue(greenSlider, greenOutput);
+  changeColorValue(blueSlider, blueOutput);
+}
 
-  sliders.forEach(changeRgbValue);
-  function changeRgbValue(item) {
-    item.sliderEl.oninput = function input() {
-      const key = item.sliderEl.id;
-      const result = document.querySelector('.resultColor');
-      rgbColor[key] = this.value;
-      item.outputEl.innerText = this.value;
-      result.style.backgroundColor = `rgb(${rgbColor.red}, ${rgbColor.green}, ${rgbColor.blue})`;
-      const hexColor = changeToHex(rgbColor.red, rgbColor.green, rgbColor.blue);
-      document.querySelector('#demo').innerText = hexColor;
-
-      // for (let [key, value] of Object.entries(rgbColor)) {
-      //   `${key}: ${value}`;
-
-      // }
-      /* https://dev.to/attacomsian/object-entries-and-object-values-methods-in-javascript-3l8c */
-      // const entries = Object.entries(rgbColor);
-      // console.log(entries);
-      __test(rgbColor);
-    };
-  }
+export function colorToHex() {
+  const red = document.querySelector('#red');
+  const green = document.querySelector('#green');
+  const blue = document.querySelector('#blue');
+  const redValue = red.value;
+  const greenValue = green.value;
+  const blueValue = blue.value;
+  console.log(changeToHex(redValue, greenValue, blueValue));
 }

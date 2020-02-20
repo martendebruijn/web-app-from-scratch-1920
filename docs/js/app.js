@@ -1,3 +1,3 @@
-import { choose } from './color.js';
+import { changeFullColorValues } from './color.js';
 
-console.log(choose());
+changeFullColorValues();

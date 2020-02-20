@@ -1,7 +1,7 @@
-// import { hexColor } from './color.js';
+import { colorToHex } from './color.js';
 
 const searchBtn = document.querySelector('#searchBtn');
-searchBtn.addEventListener('click', searchPaintings);
+searchBtn.addEventListener('click', colorToHex);
 
 function searchPaintings() {
   console.log(hexColor);

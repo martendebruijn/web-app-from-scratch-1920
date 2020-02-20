@@ -1,12 +1,16 @@
+/* TODO:
+[] create an overview render
+[] create a detailed render 
+*/
 import { data } from './data.js';
 
 export const render = {
   // none is overbodig geworden
-  none: function() {
-    const id = document.querySelector('#wrapper');
-    const render = 'Geen schilderijen gevonden bij de ingevoerde kleur';
-    id.insertAdjacentText('afterbegin', render);
-  },
+  //   none: function() {
+  //     const id = document.querySelector('#wrapper');
+  //     const render = 'Geen schilderijen gevonden bij de ingevoerde kleur';
+  //     id.insertAdjacentText('afterbegin', render);
+  //   },
   schilderijen: function(item) {
     const id = document.querySelector('#wrapper');
     const items = data.filter(item);

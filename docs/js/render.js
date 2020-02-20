@@ -1,6 +1,7 @@
 import { data } from './data.js';
 
 export const render = {
+  // none is overbodig geworden
   none: function() {
     const id = document.querySelector('#wrapper');
     const render = 'Geen schilderijen gevonden bij de ingevoerde kleur';

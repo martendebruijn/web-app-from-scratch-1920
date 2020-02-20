@@ -1,3 +1,8 @@
+/* TODO: 
+[] clean up code
+[] add square met kleur die daadwerkelijk gezocht wordt
+*/
+
 export const color = {
   /* Source: https://campushippo.com/lessons/how-to-convert-rgb-colors-to-hexadecimal-with-javascript-78219fdb */
   rgbToHex: function(rgb) {
@@ -5,7 +10,7 @@ export const color = {
     if (hex.length < 2) {
       hex = '0' + hex;
     }
-    return hex.toUpperCase();
+    return hex.toUpperCase(); //Rijksmuseum API accepteert alleen hoofdletters (+ cijfers)
   },
   fullHex: function(r, g, b) {
     const red = color.rgbToHex(r);
@@ -49,14 +54,14 @@ export const color = {
     const greenValue = green.value;
     const blueValue = blue.value;
     const hexColor = color.fullHex(redValue, greenValue, blueValue);
-    return hexColor.toUpperCase(); //Rijksmuseum API accepteert alleen hoofdletters (+ cijfers)
+    return hexColor.toUpperCase();
   },
   closestHex: function() {
     //
   },
 };
 
-/* https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
+/* Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
@@ -67,6 +72,8 @@ function hexToRgb(hex) {
       }
     : null;
 }
+
+/* Source: https://www.reddit.com/r/learnprogramming/comments/18vjlm/javascript_find_closest_color_in_an_array_of/ */
 function colorDifference(r1, g1, b1, r2, g2, b2) {
   var sumOfSquares = 0;
 
@@ -74,11 +81,11 @@ function colorDifference(r1, g1, b1, r2, g2, b2) {
   sumOfSquares += Math.pow(g1 - g2, 2);
   sumOfSquares += Math.pow(b1 - b2, 2);
 
-  return Math.sqrt(sumOfSquares);
+  return Math.sqrt(sumOfSquares); //Hoe kleiner dit getal, hoe dichterbij de kleur.
 }
 
 function rijksmuseumColorsToRgb() {
-  // De kleurcodes die de rijksmuseum API ondersteund
+  // De kleurcodes die de rijksmuseum API ondersteund:
   // prettier-ignore
   const rijksmuseumColorsHex = [ '#737C84', '#FBF6E1', '#2F4F4F', '#E0CC91', '#FBF6E1', '#000000', '#B5BFCC',
   '#737C84', '#B35A1F', '#E0CC91', '#F6ECF3', '#B5BFCC', '#F6ECF3', '#981313', '#F49B7A', '#2F4F4F', '#DDA5AA',
@@ -90,7 +97,8 @@ function rijksmuseumColorsToRgb() {
   rijksmuseumColorsHex.map(item => rijksmuseumRgb.push(hexToRgb(item)));
   return rijksmuseumRgb;
 }
-//moet pas gebeuren wanneer er op search gedrukt wordt.
+
+/* Inspired by: https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array */
 export function getClosestColor() {
   const closest = rijksmuseumColorsToRgb().reduce(function(prev, curr) {
     const red = document.querySelector('#red');
@@ -111,13 +119,5 @@ export function getClosestColor() {
       : prev;
   });
   console.log(closest);
-  return closest;
+  return closest; //de kleur die het dichtsbij zit, wordt doorgegeven aan de fetch call
 }
-
-// console.table(rijksmuseumColorsToRgb());
-
-/* https://www.reddit.com/r/learnprogramming/comments/18vjlm/javascript_find_closest_color_in_an_array_of/ */
-
-// console.log(colorDifference(200, 200, 200, 255, 255, 255)); //expected winner kleinst
-// console.log(colorDifference(125, 125, 125, 255, 255, 255)); //middel
-// console.log(colorDifference(100, 100, 100, 255, 255, 255)); //kleinst

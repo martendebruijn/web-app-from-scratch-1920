@@ -3,14 +3,14 @@ import { api } from './api.js';
 
 export const routes = {
   overview: function() {
-    render.remove('wrapper');
     api.requestPaintings().then(paintings => {
+      render.remove('wrapper');
       render.overview(paintings);
     });
   },
-  detail: function() {
+  detail: function(id) {
     render.remove('wrapper');
-    api.requestDetail().then(object => {
+    api.requestDetail(id).then(object => {
       render.detail(object);
     });
   },
@@ -21,7 +21,9 @@ export const router = {
     if (location.hash != '') {
       const id = location.hash;
       console.log('detail');
+
       const removeHash = id.split('#')[1]; //remove hash from id
+      console.log(removeHash);
       routes.detail(removeHash);
     } else {
       routes.overview();

@@ -27,19 +27,19 @@ export const api = {
         return result;
       });
   },
-  requestDetail: function() {
+  requestDetail: function(id) {
     const key = 'JeYMqBl9';
     const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection/';
-    let objectId = 'SK-C-5';
+    let objectId = id;
     const keyProperty = '?key=';
     const url = baseUrl + objectId + keyProperty + key;
-
+    console.log(url);
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(result => {
-        console.log(result.artObject.title);
+        console.log(result);
         return result;
       });
   },

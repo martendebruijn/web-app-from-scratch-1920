@@ -13,12 +13,14 @@ export const render = {
       i++;
     });
   },
-  detail: function(id) {
-    console.log('hallo ik ben de detail render met dit id: ' + id);
+  detail: function(item) {
+    console.log('hallo ik ben de detail render met dit id: ' + item);
     render.remove();
     const wrapper = document.querySelector('#wrapper');
-    // wrapper.insertAdjacentHTML('afterbegin', `<p> </p>`)
-    console.log(id);
+    wrapper.insertAdjacentHTML(
+      'afterbegin',
+      '<p>' + item.artObject.title + '</p>'
+    );
   },
   remove: function() {
     document.querySelector('#wrapper').innerHTML = '';

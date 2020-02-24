@@ -3,16 +3,16 @@ import { api } from './api.js';
 
 export const routes = {
   overview: function() {
+    render.remove('wrapper');
     api.requestPaintings().then(paintings => {
-      render.remove('wrapper');
       render.overview(paintings);
     });
   },
-  detail: function(id) {
+  detail: function() {
     render.remove('wrapper');
-
-    console.log('ik laad ' + id);
-    render.detail(id);
+    api.requestDetail().then(object => {
+      render.detail(object);
+    });
   },
 };
 
@@ -20,9 +20,12 @@ export const router = {
   handle: function() {
     if (location.hash != '') {
       const id = location.hash;
-      routes.detail(id);
+      console.log('detail');
+      const removeHash = id.split('#')[1]; //remove hash from id
+      routes.detail(removeHash);
     } else {
       routes.overview();
+      console.log('meh');
     }
   },
   hashChange: function() {

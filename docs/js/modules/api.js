@@ -15,19 +15,33 @@ export const api = {
       closestColor.g,
       closestColor.b
     );
+    const url =
+      baseUrl + key + amountProperty + amount + colorProperty + _color;
 
-    console.log(
-      baseUrl + key + amountProperty + amount + colorProperty + _color
-    );
+    console.log(url);
 
-    return fetch(
-      baseUrl + key + amountProperty + amount + colorProperty + _color
-    )
+    return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(result => {
         console.log(result);
+        return result;
+      });
+  },
+  requestDetail: function() {
+    const key = 'JeYMqBl9';
+    const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection/';
+    let objectId = 'SK-C-5';
+    const keyProperty = '?key=';
+    const url = baseUrl + objectId + keyProperty + key;
+
+    return fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(result => {
+        console.log(result.artObject.title);
         return result;
       });
   },

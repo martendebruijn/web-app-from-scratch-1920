@@ -79,36 +79,23 @@ export const color = {
 
   /* Inspired by: https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array */
   getClosestColor: function() {
-    const closest = color.rijksmuseumColorsToRgb().reduce(function(prev, curr) {
+    const rijksmuseumRgb = this.rijksmuseumColorsToRgb();
+    const closest = rijksmuseumRgb.reduce(function sortOnColorDif(prev, curr) {
       const red = document.querySelector('#red');
       const green = document.querySelector('#green');
       const blue = document.querySelector('#blue');
       const redValue = red.value;
       const greenValue = green.value;
       const blueValue = blue.value;
-      return color.colorDifference(
-        redValue,
-        greenValue,
-        blueValue,
-        curr.r,
-        curr.g,
-        curr.b
-      ) <
-        color.colorDifference(
-          redValue,
-          greenValue,
-          blueValue,
-          prev.r,
-          prev.g,
-          prev.b
-        )
-        ? curr
-        : prev;
+      // prettier-ignore
+      return color.colorDifference(redValue, greenValue, blueValue, curr.r, curr.g, curr.b) 
+      <
+        color.colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b)
+        ? curr : prev;
     });
     console.log(closest);
-    const searchColorElement = (document.querySelector(
-      '.searchColor'
-    ).style.backgroundColor = `rgb(${closest.r},${closest.g},${closest.b})`);
+    const searchColorEl = document.querySelector('.searchColor');
+    searchColorEl.style.backgroundColor = `rgb(${closest.r},${closest.g},${closest.b})`;
     return closest; //de kleur die het dichtsbij zit, wordt doorgegeven aan de fetch call
   },
 };

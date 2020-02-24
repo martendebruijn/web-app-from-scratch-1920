@@ -1,19 +1,16 @@
 import { render } from './render.js';
+import { api } from './api.js';
 
 export const routes = {
   overview: function() {
-    console.log('Routes: chooseColor');
-    // render.chooseColor();
+    api.requestPaintings().then(paintings => {
+      render.remove('wrapper');
+      render.overview(paintings);
+    });
   },
   detail: function(id) {
-    const blockElements = document.querySelectorAll('.d-block');
-    blockElements.forEach(function(el) {
-      el.classList.toggle('d-block');
-      el.classList.toggle('d-none');
-    });
-    // const el = document.querySelector(id);
-    // el.classList.toggle('d-none');
-    // el.classList.toggle('d-block');
+    render.remove('wrapper');
+
     console.log('ik laad ' + id);
     render.detail(id);
   },

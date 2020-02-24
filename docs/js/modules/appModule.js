@@ -1,12 +1,13 @@
 import { color } from './color.js';
 import { api } from './api.js';
-import { router } from './router.js';
+import { router, routes } from './router.js';
+import { render } from './render.js';
 
 export const appModule = {
   init: function() {
     color.fullValue();
     const searchBtn = document.querySelector('#searchBtn');
-    searchBtn.addEventListener('click', api.requestPaintings);
+    searchBtn.addEventListener('click', routes.overview);
     router.hashChange();
   },
 };

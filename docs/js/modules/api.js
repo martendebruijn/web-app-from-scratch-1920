@@ -20,16 +20,14 @@ export const api = {
       baseUrl + key + amountProperty + amount + colorProperty + _color
     );
 
-    fetch(baseUrl + key + amountProperty + amount + colorProperty + _color)
+    return fetch(
+      baseUrl + key + amountProperty + amount + colorProperty + _color
+    )
       .then(response => {
         return response.json();
       })
       .then(result => {
         console.log(result);
-        console.log(data.filter(result));
-        render.remove('wrapper');
-        render.overview(result);
-        console.log('dit is result: ' + result);
         return result;
       });
   },

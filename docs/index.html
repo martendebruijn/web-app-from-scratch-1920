@@ -19,39 +19,38 @@
       hierdoor kan er niet daadwerkelijk naar iedere kleur gezocht worden. Het
       dichtsbijzijnde kleur-label wordt gekozen en opgezocht.
     </h3>
-    <div>
-      <div>
+
+    <div id="wrapper">
+      <div id="chooseColor" class="d-block">
         <div>
-          <p>Rood:</p>
-          <p id="redOutput">0</p>
-          <!-- prettier-ignore -->
-          <input id="red" class="color-slider" type="range" min="0" max="255" value="0"/>
+          <div>
+            <div>
+              <p>Rood:</p>
+              <p id="redOutput">0</p>
+              <!-- prettier-ignore -->
+              <input id="red" class="color-slider" type="range" min="0" max="255" value="0"/>
+            </div>
+            <div>
+              <p>Groen:</p>
+              <p id="greenOutput">0</p>
+              <!-- prettier-ignore -->
+              <input id="green" class="color-slider" type="range" min="0" max="255" value="0"/>
+            </div>
+            <div>
+              <p>Blauw:</p>
+              <p id="blueOutput">0</p>
+              <!-- prettier-ignore -->
+              <input id="blue" class="color-slider" type="range" min="0" max="255" value="0"/>
+            </div>
+          </div>
+          <p>Gekozen kleur:</p>
+          <span class="resultColor square"></span>
+          <p>Gezochte kleur:</p>
+          <span class="searchColor square"></span>
         </div>
-        <div>
-          <p>Groen:</p>
-          <p id="greenOutput">0</p>
-          <!-- prettier-ignore -->
-          <input id="green" class="color-slider" type="range" min="0" max="255" value="0"/>
-        </div>
-        <div>
-          <p>Blauw:</p>
-          <p id="blueOutput">0</p>
-          <!-- prettier-ignore -->
-          <input id="blue" class="color-slider" type="range" min="0" max="255" value="0"/>
-        </div>
+        <button id="searchBtn">Search</button>
       </div>
-      <p>Gekozen kleur:</p>
-      <span class="resultColor square"></span>
-      <p>Gezochte kleur:</p>
-      <span class="searchColor square"></span>
     </div>
-    <button id="searchBtn">Search</button>
-
-    <p>Uitkomst:</p>
-    <div id="wrapper"></div>
-    <!-- <a href="#nijlpaard">link</a> -->
-
-    <!-- <div id="nijlpaard" class="d-none">placeholder text</div> -->
 
     <script type="module" src="./js/app.js"></script>
     <script src="./js/lib/routie.js"></script>

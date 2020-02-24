@@ -15,7 +15,6 @@ export const api = {
       closestColor.g,
       closestColor.b
     );
-    // const color = '737C84';
 
     console.log(
       baseUrl + key + amountProperty + amount + colorProperty + _color
@@ -26,16 +25,12 @@ export const api = {
         return response.json();
       })
       .then(result => {
-        if (result.artObjects.length == 0) {
-          render.remove('wrapper');
-          render.none();
-        } else {
-          console.log(result);
-          console.log(data.filter(result));
-          render.remove('wrapper');
-          render.schilderijen(result);
-          return result;
-        }
+        console.log(result);
+        console.log(data.filter(result));
+        render.remove('wrapper');
+        render.overview(result);
+        console.log('dit is result: ' + result);
+        return result;
       });
   },
 };

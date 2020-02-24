@@ -1,24 +1,26 @@
-/* TODO:
-[] create an overview render
-[] create a detailed render 
-*/
 import { data } from './data.js';
 
 export const render = {
-  // none is overbodig geworden
-  //   none: function() {
-  //     const id = document.querySelector('#wrapper');
-  //     const render = 'Geen schilderijen gevonden bij de ingevoerde kleur';
-  //     id.insertAdjacentText('afterbegin', render);
-  //   },
-  schilderijen: function(item) {
+  overview: function(item) {
     const id = document.querySelector('#wrapper');
     const items = data.filter(item);
-    items.forEach(item =>
-      id.insertAdjacentHTML('afterbegin', `${item.title} <br>`)
-    );
+    let i = 0;
+    items.forEach(function(item) {
+      id.insertAdjacentHTML(
+        'afterbegin',
+        `<a href="#${item.id}">${item.title}</a>`
+      );
+      i++;
+    });
   },
-  remove: function(id) {
-    document.getElementById(id).innerHTML = '';
+  detail: function(id) {
+    console.log('hallo ik ben de detail render met dit id: ' + id);
+    render.remove();
+    const wrapper = document.querySelector('#wrapper');
+    // wrapper.insertAdjacentHTML('afterbegin', `<p> </p>`)
+    console.log(id);
+  },
+  remove: function() {
+    document.querySelector('#wrapper').innerHTML = '';
   },
 };

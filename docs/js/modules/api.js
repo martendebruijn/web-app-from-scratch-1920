@@ -2,6 +2,7 @@ import { color } from './color.js';
 
 export const api = {
   requestPaintings: function() {
+    //change name to requestObjects()
     const key = 'JeYMqBl9';
     const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection?key=';
     const amountProperty = '&ps=';

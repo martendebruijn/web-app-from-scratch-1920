@@ -3,7 +3,7 @@ import { router, routes } from './router.js';
 
 export const appModule = {
   init: function() {
-    color.fullValue();
+    color.fullValue(); //remove this (and add to routes.colorChoosePage() (I think))
     const searchBtn = document.querySelector('#searchBtn');
     searchBtn.addEventListener('click', routes.overview); //change to router.handle()
     router.hashChange();

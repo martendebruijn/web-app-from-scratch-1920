@@ -2,6 +2,8 @@ import { render } from './render.js';
 import { api } from './api.js';
 
 export const routes = {
+  //app routes
+  //todo: add chooseColorPage
   overview: function() {
     api.requestPaintings().then(paintings => {
       render.remove('wrapper');
@@ -17,6 +19,8 @@ export const routes = {
 };
 
 export const router = {
+  //app handler
+  //todo: add chooseColorPage
   handle: function() {
     if (location.hash != '') {
       const id = location.hash;
@@ -31,9 +35,10 @@ export const router = {
     }
   },
   hashChange: function() {
+    //listen to hashchange
     window.addEventListener('hashchange', function() {
       console.log(location.hash);
-      router.handle();
+      router.handle(); //if there is a hashchange call router.handle()
     });
   },
 };

@@ -1,8 +1,3 @@
-/* TODO: 
-[x] clean up code
-[x] add square met kleur die daadwerkelijk gezocht wordt
-*/
-
 export const color = {
   /* Source: https://campushippo.com/lessons/how-to-convert-rgb-colors-to-hexadecimal-with-javascript-78219fdb */
   rgbToHex: function(rgb) {
@@ -45,17 +40,6 @@ export const color = {
     color.changeValue(greenSlider, greenOutput);
     color.changeValue(blueSlider, blueOutput);
   },
-  // colorToHex is overbodig geworden
-  // colorToHex: function() {
-  //   const red = document.querySelector('#red');
-  //   const green = document.querySelector('#green');
-  //   const blue = document.querySelector('#blue');
-  //   const redValue = red.value;
-  //   const greenValue = green.value;
-  //   const blueValue = blue.value;
-  //   const hexColor = color.fullHex(redValue, greenValue, blueValue);
-  //   return hexColor.toUpperCase();
-  // },
 
   /* Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
   hexToRgb: function(hex) {

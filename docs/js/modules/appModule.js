@@ -1,7 +1,5 @@
 import { color } from './color.js';
-import { api } from './api.js';
 import { router, routes } from './router.js';
-import { render } from './render.js';
 
 export const appModule = {
   init: function() {

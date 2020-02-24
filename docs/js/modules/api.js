@@ -1,6 +1,4 @@
 import { color } from './color.js';
-import { data } from './data.js';
-import { render } from './render.js';
 
 export const api = {
   requestPaintings: function() {

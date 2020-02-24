@@ -5,7 +5,7 @@ export const appModule = {
   init: function() {
     color.fullValue();
     const searchBtn = document.querySelector('#searchBtn');
-    searchBtn.addEventListener('click', routes.overview);
+    searchBtn.addEventListener('click', routes.overview); //change to router.handle()
     router.hashChange();
   },
 };

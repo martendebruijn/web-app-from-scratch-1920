@@ -1,8 +1,10 @@
 import { color } from './color.js';
 
 export const api = {
+  //save chosen color in local storage
   requestArtObjects: function() {
     //change name to requestObjects()
+    console.log('jeej');
     const key = 'JeYMqBl9';
     const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection?key=';
     const amountProperty = '&ps=';

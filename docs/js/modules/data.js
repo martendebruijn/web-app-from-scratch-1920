@@ -15,6 +15,15 @@ DETAIL:
 */
 
 export const data = {
+  setItem: function(key, value) {
+    localStorage.setItem(key, value);
+  },
+  clearStorage: function() {
+    localStorage.clear();
+  },
+  getItem: function(key) {
+    localStorage.key;
+  },
   filterOverview: function(data) {
     console.log(data);
     let filter = [];
@@ -28,6 +37,11 @@ export const data = {
         imgUrl: data.webImage.url,
       });
     }
+    console.log(filter);
+    let i = 0;
+    filter.forEach(artObject =>
+      this.setItem(`artObject${i++}`, JSON.stringify(artObject))
+    );
     return filter;
   },
   filterDetail: function(data) {

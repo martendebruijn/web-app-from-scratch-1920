@@ -39,7 +39,7 @@ export const render = {
         <span class="searchColor color-circle"></span>
       </div>
     </div>
-    <button id="searchBtn">Search</button>
+    <a href="#search" id="searchBtn" class="button">Search</a>
   </div>`
     );
   },

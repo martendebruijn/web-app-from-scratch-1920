@@ -1,19 +1,3 @@
-/*
-OVERVIEW: 
-- title
-- principalOrFirstMaker
-- webImage / headerImage
-
-DETAIL:
-- title
-- webImage
-- colors
-- description
-- objecttypes
-- principalMaker
-- dating
-*/
-
 export const data = {
   setItem: function(key, value) {
     localStorage.setItem(key, value);
@@ -22,45 +6,37 @@ export const data = {
     localStorage.clear();
   },
   getItem: function(key) {
-    localStorage.key;
+    localStorage.getItem(key);
   },
-  filterOverview: function(data) {
-    console.log(data);
-    let filter = [];
-    //filter de data
-    data.artObjects.forEach(filterData);
-    function filterData(data) {
-      filter.push({
-        id: data.objectNumber,
-        title: data.title,
-        maker: data.principalOrFirstMaker,
-        imgUrl: data.webImage.url,
-      });
-    }
-    console.log(filter);
-    let i = 0;
-    filter.forEach(artObject =>
-      this.setItem(`artObject${i++}`, JSON.stringify(artObject))
-    );
-    return filter;
+  getOverview: function(data) {
+    const artObjects = data.artObjects;
+    const filteredArtObjects = artObjects.map(function(artObject) {
+      const addArtObject = {
+        id: artObject.objectNumber,
+        title: artObject.title,
+        maker: artObject.principalOrFirstMaker,
+        imgUrl: artObject.webImage.url,
+      };
+      return addArtObject;
+    });
+    return filteredArtObjects;
   },
   filterDetail: function(data) {
     console.log(data);
-    let filter = [[]];
-    //filter de data
-
-    filter.push({
-      id: data.artObject.objectNumber,
-      title: data.artObject.title,
-      imgUrl: data.artObject.webImage.url,
-      type: data.artObject.objectTypes,
-      maker: data.artObject.principalMaker,
-      date: data.artObject.dating.presentingDate,
+    const artObject = [data.artObject];
+    const filteredArtObject = artObject.map(function(item) {
+      const addArtObject = {
+        id: item.objectNumber,
+        title: item.title,
+        imgUrl: item.webImage.url,
+        type: item.objectTypes,
+        maker: item.principalMaker,
+        date: item.dating.presentingDate,
+        colors: item.colors,
+      };
+      return addArtObject;
     });
-
-    console.log(filter);
-    data.artObject.colors.forEach(color => filter[0].push(color.hex));
-    console.log(filter);
-    return filter;
+    console.log(filteredArtObject);
+    return filteredArtObject;
   },
 };

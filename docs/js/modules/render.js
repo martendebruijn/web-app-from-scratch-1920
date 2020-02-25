@@ -44,52 +44,46 @@ export const render = {
     );
   },
 
-  overview: function(item) {
+  overview: function(items) {
     const id = document.querySelector('#wrapper');
-    const items = data.filterOverview(item);
-    let i = 0;
     //insert every object in the #wrapper div for the overview page
     items.forEach(function(item) {
       id.insertAdjacentHTML(
         'afterbegin',
         `<a href="#${item.id}">
-          <p>${item.title}</p>
-          <p>${item.maker}</p>
-          <img src="${item.imgUrl}" class="overview-img" alt="${item.title}">
-        </a>`
+           <p>${item.title}</p>
+           <p>${item.maker}</p>
+           <img src="${item.imgUrl}" class="overview-img" alt="${item.title}">
+         </a>`
       );
-      i++;
     });
   },
+  colorCircle: function(color) {
+    const colorWrapper = document.querySelector('#colorWrapper');
+    const circleEl = document.createElement('div');
+    circleEl.classList.add('color-circle');
+    circleEl.style.backgroundColor = color.hex;
+    colorWrapper.appendChild(circleEl);
+  },
   detail: function(item) {
-    console.log('hallo ik ben de detail render met dit id: ' + item);
+    const artObject = item[0];
     this.remove();
-    const cleanData = data.filterDetail(item); //filter the data
     const wrapper = document.querySelector('#wrapper');
-    const artObject = cleanData[1];
-    const colors = cleanData[0];
 
-    //insert art object in the wrapper div
+    // //insert art object in the wrapper div
     wrapper.insertAdjacentHTML(
       'afterbegin',
       '<p>' +
         artObject.title +
         '</p>' +
         `<img src="${artObject.imgUrl}" class="detail-img" alt="${artObject.title}">
-        <p>${artObject.type}</p>
-        <p>${artObject.maker}</p>
-        <p>${artObject.date}</p>
-        <div id="colorWrapper"></div>`
+         <p>${artObject.type}</p>
+         <p>${artObject.maker}</p>
+         <p>${artObject.date}</p>
+         <div id="colorWrapper"></div>`
     );
-    colors.forEach(color => createColorCircle(color));
-    function createColorCircle(color) {
-      const colorWrapper = document.querySelector('#colorWrapper');
-      const colorCircle = document.createElement('div');
 
-      colorCircle.classList.add('color-circle');
-      colorCircle.style.backgroundColor = color;
-      colorWrapper.appendChild(colorCircle);
-    }
+    artObject.colors.forEach(color => render.colorCircle(color));
   },
   remove: function() {
     document.querySelector('#wrapper').innerHTML = '';

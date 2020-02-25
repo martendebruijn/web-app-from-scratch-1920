@@ -16,11 +16,16 @@ export const routes = {
     //check if in local storage
     if (window.localStorage.length != 0) {
       console.log('ik heb al data');
-      //load local storage
+      const _test = localStorage.getItem('artObject0');
+
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => console.log(localStorage.getItem(key)));
+      console.log(keys);
     } else {
       api.requestArtObjects().then(artObjects => {
         render.remove('wrapper');
-        render.overview(artObjects);
+        const overviewData = data.getOverview(artObjects);
+        render.overview(overviewData);
       });
     }
     const backBtn = document.querySelector('#backBtn');
@@ -29,7 +34,8 @@ export const routes = {
   detail: function(id) {
     render.remove('wrapper');
     api.requestDetail(id).then(object => {
-      render.detail(object);
+      const detailData = data.filterDetail(object);
+      render.detail(detailData);
     });
     const backBtn = document.querySelector('#backBtn');
     backBtn.addEventListener('click', router.goBack);

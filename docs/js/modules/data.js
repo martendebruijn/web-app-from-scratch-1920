@@ -24,6 +24,7 @@ export const data = {
     console.log(localStorageValues);
     return localStorageValues;
   },
+  //change to filter
   getOverview: function(data) {
     const artObjects = data.artObjects;
     const filteredArtObjects = artObjects.map(function(artObject) {

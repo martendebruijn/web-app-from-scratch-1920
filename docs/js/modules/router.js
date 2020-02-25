@@ -3,7 +3,7 @@ import { api } from './api.js';
 import { color } from './color.js';
 import { data } from './data.js';
 
-export const routes = {
+const routes = {
   //app routes
   chooseColor: function() {
     console.log('ls is cleared');
@@ -16,6 +16,7 @@ export const routes = {
     render.backBtn();
     // backBtn.classList.toggle('d-none');
     //check if in local storage
+    //make this in an checkLocalStorage() function
     if (window.localStorage.length != 0) {
       console.log('ik heb al data');
       render.overview(data.getLocalStorage());

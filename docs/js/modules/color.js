@@ -82,7 +82,6 @@ export const color = {
 
     return Math.sqrt(sumOfSquares); //Hoe kleiner dit getal, hoe dichterbij de kleur.
   },
-
   /* Inspired by: https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array */
   sortOnColorDif: function(prev, curr) {
     const red = document.querySelector('#red');
@@ -97,7 +96,6 @@ export const color = {
       color.colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b) //calculate the color difference between the values of the sliders and the previous values
       ? curr : prev; //sort? need more explaination!
   },
-
   getClosestColor: function() {
     //wordt aangeroepen door api.requestArtObjects
     const rijksmuseumRgb = this.rijksmuseumColorsToRgb(); //converteer de hex kleur codes van het rijksmusuem naar rgb waardes

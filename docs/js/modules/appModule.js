@@ -1,5 +1,4 @@
-import { color } from './color.js';
-import { router, routes } from './router.js';
+import { router } from './router.js';
 
 export const appModule = {
   init: function() {

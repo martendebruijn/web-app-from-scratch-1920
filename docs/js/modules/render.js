@@ -1,8 +1,6 @@
-import { data } from './data.js';
 import { router } from './router.js';
 
 export const render = {
-  //todo: add chooseColorPage
   chooseColor: function() {
     const wrapper = document.querySelector('#wrapper');
     wrapper.insertAdjacentHTML(

@@ -52,7 +52,11 @@ export const render = {
     items.forEach(function(item) {
       id.insertAdjacentHTML(
         'afterbegin',
-        `<a href="#${item.id}">${item.title}</a>`
+        `<a href="#${item.id}">
+          <p>${item.title}</p>
+          <p>${item.maker}</p>
+          <img src="${item.imgUrl}" class="overview-img" alt="${item.title}">
+        </a>`
       );
       i++;
     });
@@ -62,15 +66,30 @@ export const render = {
     this.remove();
     const cleanData = data.filterDetail(item); //filter the data
     const wrapper = document.querySelector('#wrapper');
-    const artObject = cleanData[0]; //change name to artObject
+    const artObject = cleanData[1];
+    const colors = cleanData[0];
+
     //insert art object in the wrapper div
     wrapper.insertAdjacentHTML(
       'afterbegin',
       '<p>' +
         artObject.title +
         '</p>' +
-        `<img src="${artObject.imgUrl}" alt="#">`
+        `<img src="${artObject.imgUrl}" class="detail-img" alt="${artObject.title}">
+        <p>${artObject.type}</p>
+        <p>${artObject.maker}</p>
+        <p>${artObject.date}</p>
+        <div id="colorWrapper"></div>`
     );
+    colors.forEach(color => createColorCircle(color));
+    function createColorCircle(color) {
+      const colorWrapper = document.querySelector('#colorWrapper');
+      const colorCircle = document.createElement('div');
+
+      colorCircle.classList.add('color-circle');
+      colorCircle.style.backgroundColor = color;
+      colorWrapper.appendChild(colorCircle);
+    }
   },
   remove: function() {
     document.querySelector('#wrapper').innerHTML = '';

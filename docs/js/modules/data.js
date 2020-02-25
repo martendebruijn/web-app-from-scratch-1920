@@ -32,18 +32,20 @@ export const data = {
   },
   filterDetail: function(data) {
     console.log(data);
-    let filter = [];
+    let filter = [[]];
     //filter de data
 
     filter.push({
       id: data.artObject.objectNumber,
       title: data.artObject.title,
       imgUrl: data.artObject.webImage.url,
-      colors: data.artObject.colors,
       type: data.artObject.objectTypes,
       maker: data.artObject.principalMaker,
       date: data.artObject.dating.presentingDate,
     });
+
+    console.log(filter);
+    data.artObject.colors.forEach(color => filter[0].push(color.hex));
     console.log(filter);
     return filter;
   },

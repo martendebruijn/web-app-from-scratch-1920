@@ -69,3 +69,16 @@ button:hover {
 #chooseColor {
   margin-top: 2em;
 }
+.overview-img,
+.detail-img {
+  height: 200px;
+}
+#colorWrapper {
+  display: flex;
+}
+#colorWrapper > div {
+  margin-right: 1em;
+}
+#colorWrapper div:last-child {
+  margin-right: 0;
+}

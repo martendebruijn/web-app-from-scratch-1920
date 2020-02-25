@@ -9,7 +9,7 @@ export const color = {
   },
 
   fullHex: function(r, g, b) {
-    //wordt aangeroepen door api.requestPaintings
+    //wordt aangeroepen door api.requestArtObjects
     const red = this.rgbToHex(r);
     const green = this.rgbToHex(g);
     const blue = this.rgbToHex(b);
@@ -92,14 +92,14 @@ export const color = {
     const greenValue = green.value;
     const blueValue = blue.value;
     // prettier-ignore
-    return this.colorDifference(redValue, greenValue, blueValue, curr.r, curr.g, curr.b) //calculate the color difference between the values of the sliders and the current color values
+    return color.colorDifference(redValue, greenValue, blueValue, curr.r, curr.g, curr.b) //calculate the color difference between the values of the sliders and the current color values
     <
-      this.colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b) //calculate the color difference between the values of the sliders and the previous values
+      color.colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b) //calculate the color difference between the values of the sliders and the previous values
       ? curr : prev; //sort? need more explaination!
   },
 
   getClosestColor: function() {
-    //wordt aangeroepen door api.requestPaintings
+    //wordt aangeroepen door api.requestArtObjects
     const rijksmuseumRgb = this.rijksmuseumColorsToRgb(); //converteer de hex kleur codes van het rijksmusuem naar rgb waardes
     const closest = rijksmuseumRgb.reduce(this.sortOnColorDif); //verkrijg de dichtsbijzijnde kleur
     console.log(closest);

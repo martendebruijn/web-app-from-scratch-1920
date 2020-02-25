@@ -13,25 +13,25 @@ export const routes = {
 
   overview: function() {
     console.log(location.hash);
+    render.backBtn();
+    // backBtn.classList.toggle('d-none');
     //check if in local storage
     if (window.localStorage.length != 0) {
       console.log('ik heb al data');
-      const _test = localStorage.getItem('artObject0');
-
-      const keys = Object.keys(localStorage);
-      keys.forEach(key => console.log(localStorage.getItem(key)));
-      console.log(keys);
+      render.overview(data.getLocalStorage());
+      // console.log(keys);
     } else {
       api.requestArtObjects().then(artObjects => {
         render.remove('wrapper');
         const overviewData = data.getOverview(artObjects);
+        console.log(overviewData);
+        data.addToLocalStorage(overviewData);
         render.overview(overviewData);
       });
     }
-    const backBtn = document.querySelector('#backBtn');
-    backBtn.addEventListener('click', router.goBack);
   },
   detail: function(id) {
+    render.backBtn();
     render.remove('wrapper');
     api.requestDetail(id).then(object => {
       const detailData = data.filterDetail(object);
@@ -46,6 +46,7 @@ export const router = {
   //app handler
   //todo: add chooseColorPage
   handle: function() {
+    const backBtn = document.querySelector('#backBtn');
     if (location.hash != '' && location.hash != '#search') {
       console.log(location.hash != '' && location.hash != '#search');
 
@@ -56,15 +57,14 @@ export const router = {
       routes.detail(removeHash);
     } else if (location.hash === '#search') {
       console.log('overview');
+      this.show(backBtn);
       routes.overview();
     } else {
+      this.hide(backBtn);
       routes.chooseColor();
       color.changeAllSliderValues();
       console.log('choose color');
-      const searchBtn = document.querySelector('#searchBtn');
-      searchBtn.addEventListener('click', routes.handle);
     }
-    // routes.overview();
   },
 
   hashChange: function() {
@@ -78,5 +78,11 @@ export const router = {
   goBack: function() {
     render.remove('wrapper');
     window.history.back();
+  },
+  show: function(el) {
+    el.classList.remove('d-none');
+  },
+  hide: function(el) {
+    el.classList.add('d-none');
   },
 };

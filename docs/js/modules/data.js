@@ -5,8 +5,24 @@ export const data = {
   clearStorage: function() {
     localStorage.clear();
   },
-  getItem: function(key) {
-    localStorage.getItem(key);
+  addToLocalStorage: function(items) {
+    let i = 0;
+    items.forEach(function(item) {
+      const key = `artObject${i++}`;
+      const value = JSON.stringify(item);
+      data.setItem(key, value);
+    });
+  },
+  getLocalStorage: function() {
+    const keys = Object.keys(localStorage);
+    const localStorageValues = [];
+    keys.forEach(function(key) {
+      const value = localStorage.getItem(key);
+      const parsedValue = JSON.parse(value);
+      localStorageValues.push(parsedValue);
+    });
+    console.log(localStorageValues);
+    return localStorageValues;
   },
   getOverview: function(data) {
     const artObjects = data.artObjects;

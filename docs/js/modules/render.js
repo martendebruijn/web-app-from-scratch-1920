@@ -1,4 +1,5 @@
 import { data } from './data.js';
+import { router } from './router.js';
 
 export const render = {
   //todo: add chooseColorPage
@@ -87,5 +88,9 @@ export const render = {
   },
   remove: function() {
     document.querySelector('#wrapper').innerHTML = '';
+  },
+  backBtn: function() {
+    const backBtn = document.querySelector('#backBtn');
+    backBtn.addEventListener('click', router.goBack);
   },
 };

@@ -7,14 +7,16 @@ export const color = {
     }
     return hex.toUpperCase(); //Rijksmuseum API accepteert alleen hoofdletters (+ cijfers)
   },
+
   fullHex: function(r, g, b) {
     //wordt aangeroepen door api.requestPaintings
-    const red = color.rgbToHex(r);
-    const green = color.rgbToHex(g);
-    const blue = color.rgbToHex(b);
+    const red = this.rgbToHex(r);
+    const green = this.rgbToHex(g);
+    const blue = this.rgbToHex(b);
     return red + green + blue;
   },
-  changeValue: function(sliderEl, outputEl) {
+
+  changeSliderValue: function(sliderEl, outputEl) {
     sliderEl.oninput = function input() {
       const colorValue = this.value;
       const result = document.querySelector('.resultColor');
@@ -29,7 +31,8 @@ export const color = {
       result.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
     };
   },
-  fullValue: function() {
+
+  changeAllSliderValues: function() {
     //to do: change name to -> changeAllValues()
     const redSlider = document.querySelector('#red');
     const redOutput = document.querySelector('#redOutput');
@@ -38,9 +41,9 @@ export const color = {
     const blueSlider = document.querySelector('#blue');
     const blueOutput = document.querySelector('#blueOutput');
 
-    color.changeValue(redSlider, redOutput);
-    color.changeValue(greenSlider, greenOutput);
-    color.changeValue(blueSlider, blueOutput);
+    this.changeSliderValue(redSlider, redOutput);
+    this.changeSliderValue(greenSlider, greenOutput);
+    this.changeSliderValue(blueSlider, blueOutput);
   },
 
   /* Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
@@ -55,6 +58,20 @@ export const color = {
       : null; //or 0 (i think)
   },
 
+  rijksmuseumColorsToRgb: function() {
+    // De kleurcodes die de rijksmuseum API ondersteund:
+    // prettier-ignore
+    const rijksmuseumColorsHex = [ '#737C84', '#FBF6E1', '#2F4F4F', '#E0CC91', '#FBF6E1', '#000000', '#B5BFCC',
+    '#737C84', '#B35A1F', '#E0CC91', '#F6ECF3', '#B5BFCC', '#F6ECF3', '#981313', '#F49B7A', '#2F4F4F', '#DDA5AA',
+    '#E09714', '#367614', '#4019B1', '#4279DB', '#DE4153', '#62AD77', '#8268DC', '#850085', '#981313',
+    '#DDA5AA', '#DF4C93', '#FFEB00', '#4279DB'
+    ];
+
+    let rijksmuseumRgb = [];
+    rijksmuseumColorsHex.map(item => rijksmuseumRgb.push(this.hexToRgb(item))); //change the hex color codes to rgb color values
+    return rijksmuseumRgb;
+  },
+
   /* Source: https://www.reddit.com/r/learnprogramming/comments/18vjlm/javascript_find_closest_color_in_an_array_of/ */
   colorDifference: function(r1, g1, b1, r2, g2, b2) {
     let sumOfSquares = 0;
@@ -64,19 +81,6 @@ export const color = {
     sumOfSquares += Math.pow(b1 - b2, 2);
 
     return Math.sqrt(sumOfSquares); //Hoe kleiner dit getal, hoe dichterbij de kleur.
-  },
-  rijksmuseumColorsToRgb: function() {
-    // De kleurcodes die de rijksmuseum API ondersteund:
-    // prettier-ignore
-    const rijksmuseumColorsHex = [ '#737C84', '#FBF6E1', '#2F4F4F', '#E0CC91', '#FBF6E1', '#000000', '#B5BFCC',
-  '#737C84', '#B35A1F', '#E0CC91', '#F6ECF3', '#B5BFCC', '#F6ECF3', '#981313', '#F49B7A', '#2F4F4F', '#DDA5AA',
-  '#E09714', '#367614', '#4019B1', '#4279DB', '#DE4153', '#62AD77', '#8268DC', '#850085', '#981313',
-  '#DDA5AA', '#DF4C93', '#FFEB00', '#4279DB'
-  ];
-
-    let rijksmuseumRgb = [];
-    rijksmuseumColorsHex.map(item => rijksmuseumRgb.push(color.hexToRgb(item))); //change the hex color codes to rgb color values
-    return rijksmuseumRgb;
   },
 
   /* Inspired by: https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array */
@@ -88,11 +92,12 @@ export const color = {
     const greenValue = green.value;
     const blueValue = blue.value;
     // prettier-ignore
-    return color.colorDifference(redValue, greenValue, blueValue, curr.r, curr.g, curr.b) //calculate the color difference between the values of the sliders and the current color values
+    return this.colorDifference(redValue, greenValue, blueValue, curr.r, curr.g, curr.b) //calculate the color difference between the values of the sliders and the current color values
     <
-      color.colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b) //calculate the color difference between the values of the sliders and the previous values
+      this.colorDifference(redValue, greenValue, blueValue, prev.r, prev.g, prev.b) //calculate the color difference between the values of the sliders and the previous values
       ? curr : prev; //sort? need more explaination!
   },
+
   getClosestColor: function() {
     //wordt aangeroepen door api.requestPaintings
     const rijksmuseumRgb = this.rijksmuseumColorsToRgb(); //converteer de hex kleur codes van het rijksmusuem naar rgb waardes

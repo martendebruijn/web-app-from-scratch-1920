@@ -25,8 +25,7 @@ https://www.rijksmuseum.nl/en/rijksstudio/
 
 ## Actor Diagram
 
-Onderstaande mijn tijdelijke actor diagram (deze wordt nog aangepast(!))
-![Actor Diagram](./readme-img/temp-actor.png)
+![Actor Diagram](./readme-img/actor-diagram-marten-de-bruijn)
 
 ## Interaction Diagram
 

@@ -25,7 +25,7 @@ https://www.rijksmuseum.nl/en/rijksstudio/
 
 ## Actor Diagram
 
-![Actor Diagram](./readme-img/actor-diagram-marten-de-bruijn)
+![Actor Diagram](./readme-img/actor-diagram-marten-de-bruijn.png)
 
 ## Interaction Diagram
 

@@ -40,6 +40,7 @@ export const data = {
       };
       return addArtObject;
     });
+    console.log(filteredArtObjects);
     return filteredArtObjects;
   },
   filterDetail: function(data) {

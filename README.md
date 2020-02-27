@@ -1,10 +1,12 @@
-# Web App From Scratch - Marten de Bruijn
+# 🎓Web App From Scratch 👨🏻‍💻Marten de Bruijn
 
-## Live Demo
+### Live Demo
 
-[Live Demo Link](https://martendebruijn.github.io/web-app-from-scratch-1920/)
+[Bekijk de live demo!](https://martendebruijn.github.io/web-app-from-scratch-1920/)
 
-## Table of contents
+#### Table of contents
+
+<!-- toc -->
 
 ## Description
 

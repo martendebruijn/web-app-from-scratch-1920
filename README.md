@@ -4,6 +4,13 @@
 
 [Bekijk de live demo!](https://martendebruijn.github.io/web-app-from-scratch-1920/)
 
+###### Color Choose Page
+![color choose page](./readme-img/color-choose-page.png)
+###### Overview Page
+![overview page](./readme-img/overview-page.png)
+###### Detail Page
+![detail page](./readme-img/detail-page.png)
+
 ## Beschrijving
 
 Door middel van deze web applicatie kan men het rijksmuseum doorzoeken op basis van een kleur.

@@ -6,36 +6,27 @@ import { data } from './data.js';
 const routes = {
   //app routes
   chooseColor: function() {
+    // render.remove('loader');
     console.log('ls is cleared');
     data.clearStorage();
+    router.hide('loader');
     render.chooseColor();
   },
-
   overview: function() {
     console.log(location.hash);
     render.backBtn();
+
+    data.checkLocalStorage();
     // backBtn.classList.toggle('d-none');
     //check if in local storage
     //make this in an checkLocalStorage() function
-    if (window.localStorage.length != 0) {
-      console.log('ik heb al data');
-      render.overview(data.getLocalStorage());
-      // console.log(keys);
-    } else {
-      api.requestArtObjects().then(artObjects => {
-        render.remove('wrapper');
-        const overviewData = data.getOverview(artObjects);
-        console.log(overviewData);
-        data.addToLocalStorage(overviewData);
-        render.overview(overviewData);
-      });
-    }
   },
   detail: function(id) {
     render.backBtn();
     render.remove('wrapper');
     api.requestDetail(id).then(object => {
       const detailData = data.filterDetail(object);
+      router.hide('loader');
       render.detail(detailData);
     });
     const backBtn = document.querySelector('#backBtn');
@@ -47,7 +38,6 @@ export const router = {
   //app handler
   //todo: add chooseColorPage
   handle: function() {
-    const backBtn = document.querySelector('#backBtn');
     if (location.hash != '' && location.hash != '#search') {
       console.log(location.hash != '' && location.hash != '#search');
 
@@ -57,11 +47,14 @@ export const router = {
       console.log(removeHash);
       routes.detail(removeHash);
     } else if (location.hash === '#search') {
+      // render.loader();
+
       console.log('overview');
-      this.show(backBtn);
+      this.show('backBtn');
       routes.overview();
     } else {
-      this.hide(backBtn);
+      // render.loader();
+      this.hide('backBtn');
       routes.chooseColor();
       color.changeAllSliderValues();
       console.log('choose color');
@@ -73,6 +66,7 @@ export const router = {
     window.addEventListener('hashchange', function() {
       console.log(location.hash);
       console.log(this);
+      router.show('loader');
       router.handle(); //if there is a hashchange call router.handle()
     });
   },
@@ -81,9 +75,11 @@ export const router = {
     window.history.back();
   },
   show: function(el) {
-    el.classList.remove('d-none');
+    const id = document.getElementById(el);
+    id.classList.remove('d-none');
   },
   hide: function(el) {
-    el.classList.add('d-none');
+    const id = document.getElementById(el);
+    id.classList.add('d-none');
   },
 };

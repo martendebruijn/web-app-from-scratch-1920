@@ -1,6 +1,13 @@
 import { router } from './router.js';
 
 export const render = {
+  loader: function() {
+    const wrapper = document.querySelector('#wrapper');
+    wrapper.insertAdjacentHTML(
+      'afterbegin',
+      '<p id="loader">ik ben aan het laden...</p>'
+    );
+  },
   chooseColor: function() {
     const wrapper = document.querySelector('#wrapper');
     wrapper.insertAdjacentHTML(
@@ -66,7 +73,7 @@ export const render = {
   },
   detail: function(item) {
     const artObject = item[0];
-    this.remove();
+    this.remove('wrapper');
     const wrapper = document.querySelector('#wrapper');
 
     // //insert art object in the wrapper div
@@ -84,8 +91,8 @@ export const render = {
 
     artObject.colors.forEach(color => render.colorCircle(color));
   },
-  remove: function() {
-    document.querySelector('#wrapper').innerHTML = '';
+  remove: function(id) {
+    document.getElementById(id).innerHTML = '';
   },
   backBtn: function() {
     const backBtn = document.querySelector('#backBtn');

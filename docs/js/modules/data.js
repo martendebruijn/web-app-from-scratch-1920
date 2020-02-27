@@ -1,3 +1,7 @@
+import { render } from './render.js';
+import { api } from './api.js';
+import { router } from './router.js';
+
 export const data = {
   setItem: function(key, value) {
     localStorage.setItem(key, value);
@@ -55,5 +59,22 @@ export const data = {
     });
     console.log(filteredArtObject);
     return filteredArtObject;
+  },
+  checkLocalStorage: function() {
+    if (window.localStorage.length != 0) {
+      console.log('ik heb al data');
+      router.hide('loader');
+      render.overview(data.getLocalStorage());
+      // console.log(keys);
+    } else {
+      api.requestArtObjects().then(artObjects => {
+        render.remove('wrapper');
+        const overviewData = data.getOverview(artObjects);
+        console.log(overviewData);
+        data.addToLocalStorage(overviewData);
+        router.hide('loader');
+        render.overview(overviewData);
+      });
+    }
   },
 };

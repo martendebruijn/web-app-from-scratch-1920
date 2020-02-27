@@ -29,7 +29,7 @@ export const data = {
     return localStorageValues;
   },
   //change to filter
-  getOverview: function(data) {
+  filterOverview: function(data) {
     const artObjects = data.artObjects;
     const filteredArtObjects = artObjects.map(function(artObject) {
       const addArtObject = {
@@ -69,7 +69,7 @@ export const data = {
     } else {
       api.requestArtObjects().then(artObjects => {
         render.remove('wrapper');
-        const overviewData = data.getOverview(artObjects);
+        const overviewData = data.filterOverview(artObjects);
         console.log(overviewData);
         data.addToLocalStorage(overviewData);
         router.hide('loader');

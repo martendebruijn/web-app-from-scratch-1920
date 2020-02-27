@@ -49,7 +49,6 @@ export const render = {
   </div>`
     );
   },
-
   overview: function(items) {
     const id = document.querySelector('#wrapper');
     //insert every object in the #wrapper div for the overview page

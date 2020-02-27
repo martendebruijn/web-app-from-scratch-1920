@@ -29,7 +29,7 @@ https://www.rijksmuseum.nl/en/rijksstudio/
 
 ## Interaction Diagram
 
-![Interaction Diagram](./interaction-diagram.png)
+![Interaction Diagram](./readme-img/interaction-diagram-marten-de-bruijn.png)
 
 ## Sources
 

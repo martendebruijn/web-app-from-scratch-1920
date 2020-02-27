@@ -15,17 +15,23 @@ export const color = {
     const blue = this.rgbToHex(b);
     return red + green + blue;
   },
+  getSliderValue: function() {
+    const red = document.querySelector('#red');
+    const green = document.querySelector('#green');
+    const blue = document.querySelector('#blue');
+    const redValue = red.value;
+    const greenValue = green.value;
+    const blueValue = blue.value;
+    return { r: redValue, g: greenValue, b: blueValue };
+  },
 
   changeSliderValue: function(sliderEl, outputEl) {
     sliderEl.oninput = function input() {
       const colorValue = this.value;
       const result = document.querySelector('.resultColor');
-      const red = document.querySelector('#red');
-      const green = document.querySelector('#green');
-      const blue = document.querySelector('#blue');
-      const redValue = red.value;
-      const greenValue = green.value;
-      const blueValue = blue.value;
+      const redValue = color.getSliderValue().r;
+      const greenValue = color.getSliderValue().g;
+      const blueValue = color.getSliderValue().b;
 
       outputEl.innerText = colorValue;
       result.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
@@ -84,12 +90,9 @@ export const color = {
   },
   /* Inspired by: https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array */
   sortOnColorDif: function(prev, curr) {
-    const red = document.querySelector('#red');
-    const green = document.querySelector('#green');
-    const blue = document.querySelector('#blue');
-    const redValue = red.value;
-    const greenValue = green.value;
-    const blueValue = blue.value;
+    const redValue = color.getSliderValue().r;
+    const greenValue = color.getSliderValue().g;
+    const blueValue = color.getSliderValue().b;
     // prettier-ignore
     return color.colorDifference(redValue, greenValue, blueValue, curr.r, curr.g, curr.b) //calculate the color difference between the values of the sliders and the current color values
     <

@@ -301,9 +301,9 @@ Lijst van bronnen die ik heb benaderd. De urls staan ook in comments in de code 
 
 ## Feature Whislist
 
-.._ Styling!
-.._ Gerelateerde kunstwerken zien
-..\* Gebruiker laten kiezen hoeveel resultaten getoond worden
+..* Styling!
+..* Gerelateerde kunstwerken zien
+..* Gebruiker laten kiezen hoeveel resultaten getoond worden
 
 <!-- ## Feature Whislist -->
 

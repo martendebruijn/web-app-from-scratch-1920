@@ -3,8 +3,6 @@ import { color } from './color.js';
 export const api = {
   //save chosen color in local storage
   requestArtObjects: function() {
-    //change name to requestObjects()
-    console.log('jeej');
     const key = 'JeYMqBl9';
     const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection?key=';
     const amountProperty = '&ps=';
@@ -19,30 +17,25 @@ export const api = {
     const url =
       baseUrl + key + amountProperty + amount + colorProperty + _color;
 
-    console.log(url);
-
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(result => {
-        console.log(result);
         return result;
       });
   },
   requestDetail: function(id) {
     const key = 'JeYMqBl9';
     const baseUrl = 'https://www.rijksmuseum.nl/api/nl/collection/';
-    let objectId = id;
+    const objectId = id;
     const keyProperty = '?key=';
     const url = baseUrl + objectId + keyProperty + key;
-    console.log(url);
     return fetch(url)
       .then(response => {
         return response.json();
       })
       .then(result => {
-        console.log(result);
         return result;
       });
   },

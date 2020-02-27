@@ -75,7 +75,7 @@ export const render = {
     this.remove('wrapper');
     const wrapper = document.querySelector('#wrapper');
 
-    // //insert art object in the wrapper div
+    // insert art object in the wrapper div
     wrapper.insertAdjacentHTML(
       'afterbegin',
       '<p>' +
@@ -88,7 +88,7 @@ export const render = {
          <div id="colorWrapper"></div>`
     );
 
-    artObject.colors.forEach(color => render.colorCircle(color));
+    artObject.colors.forEach(color => render.colorCircle(color)); //creeer een circle voor iedere kleur
   },
   remove: function(id) {
     document.getElementById(id).innerHTML = '';

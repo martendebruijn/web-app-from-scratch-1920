@@ -6,20 +6,13 @@ import { data } from './data.js';
 const routes = {
   //app routes
   chooseColor: function() {
-    // render.remove('loader');
-    console.log('ls is cleared');
     data.clearStorage();
     router.hide('loader');
     render.chooseColor();
   },
   overview: function() {
-    console.log(location.hash);
     render.backBtn();
-
     data.checkLocalStorage();
-    // backBtn.classList.toggle('d-none');
-    //check if in local storage
-    //make this in an checkLocalStorage() function
   },
   detail: function(id) {
     render.backBtn();
@@ -36,42 +29,30 @@ const routes = {
 
 export const router = {
   //app handler
-  //todo: add chooseColorPage
   handle: function() {
     if (location.hash != '' && location.hash != '#search') {
-      console.log(location.hash != '' && location.hash != '#search');
-
       const id = location.hash;
-      console.log('detail');
-      const removeHash = id.split('#')[1]; //remove hash from id
-      console.log(removeHash);
+      const removeHash = id.split('#')[1]; //remove hash from id zodat dit id gebruikt kan worden in de api call
       routes.detail(removeHash);
     } else if (location.hash === '#search') {
-      // render.loader();
-
-      console.log('overview');
       this.show('backBtn');
       routes.overview();
     } else {
-      // render.loader();
       this.hide('backBtn');
       routes.chooseColor();
       color.changeAllSliderValues();
-      console.log('choose color');
     }
   },
 
   hashChange: function() {
     //listen to hashchange
     window.addEventListener('hashchange', function() {
-      console.log(location.hash);
-      console.log(this);
       router.show('loader');
       router.handle(); //if there is a hashchange call router.handle()
     });
   },
   goBack: function() {
-    render.remove('wrapper');
+    render.remove('wrapper'); //go back a page
     window.history.back();
   },
   show: function(el) {

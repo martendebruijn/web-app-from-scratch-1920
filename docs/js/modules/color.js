@@ -7,7 +7,6 @@ export const color = {
     }
     return hex.toUpperCase(); //Rijksmuseum API accepteert alleen hoofdletters (+ cijfers)
   },
-
   fullHex: function(r, g, b) {
     //wordt aangeroepen door api.requestArtObjects
     const red = this.rgbToHex(r);
@@ -24,7 +23,6 @@ export const color = {
     const blueValue = blue.value;
     return { r: redValue, g: greenValue, b: blueValue };
   },
-
   changeSliderValue: function(sliderEl, outputEl) {
     sliderEl.oninput = function input() {
       const colorValue = this.value;
@@ -37,9 +35,7 @@ export const color = {
       result.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
     };
   },
-
   changeAllSliderValues: function() {
-    //to do: change name to -> changeAllValues()
     const redSlider = document.querySelector('#red');
     const redOutput = document.querySelector('#redOutput');
     const greenSlider = document.querySelector('#green');
@@ -57,11 +53,11 @@ export const color = {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
       ? {
-          r: parseInt(result[1], 16), //tot de macht 16
-          g: parseInt(result[2], 16), //need more explaination!
+          r: parseInt(result[1], 16), //hexadecimal numeric system is used, so a hexadecimal number must be parsed to a decimal number
+          g: parseInt(result[2], 16), 
           b: parseInt(result[3], 16),
         }
-      : null; //or 0 (i think)
+      : null; 
   },
 
   rijksmuseumColorsToRgb: function() {
@@ -73,7 +69,7 @@ export const color = {
     '#DDA5AA', '#DF4C93', '#FFEB00', '#4279DB'
     ];
 
-    let rijksmuseumRgb = [];
+    const rijksmuseumRgb = [];
     rijksmuseumColorsHex.map(item => rijksmuseumRgb.push(this.hexToRgb(item))); //change the hex color codes to rgb color values
     return rijksmuseumRgb;
   },
@@ -103,7 +99,6 @@ export const color = {
     //wordt aangeroepen door api.requestArtObjects
     const rijksmuseumRgb = this.rijksmuseumColorsToRgb(); //converteer de hex kleur codes van het rijksmusuem naar rgb waardes
     const closest = rijksmuseumRgb.reduce(this.sortOnColorDif); //verkrijg de dichtsbijzijnde kleur
-    console.log(closest);
     const searchColorEl = document.querySelector('.searchColor');
     searchColorEl.style.backgroundColor = `rgb(${closest.r},${closest.g},${closest.b})`; //change bg of the searched color element
     return closest; //de kleur die het dichtsbij zit, wordt doorgegeven aan de fetch call

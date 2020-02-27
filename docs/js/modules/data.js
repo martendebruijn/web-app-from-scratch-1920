@@ -25,10 +25,9 @@ export const data = {
       const parsedValue = JSON.parse(value);
       localStorageValues.push(parsedValue);
     });
-    console.log(localStorageValues);
     return localStorageValues;
   },
-  //change to filter
+// filter data 
   filterOverview: function(data) {
     const artObjects = data.artObjects;
     const filteredArtObjects = artObjects.map(function(artObject) {
@@ -40,11 +39,9 @@ export const data = {
       };
       return addArtObject;
     });
-    console.log(filteredArtObjects);
     return filteredArtObjects;
   },
   filterDetail: function(data) {
-    console.log(data);
     const artObject = [data.artObject];
     const filteredArtObject = artObject.map(function(item) {
       const addArtObject = {
@@ -58,20 +55,16 @@ export const data = {
       };
       return addArtObject;
     });
-    console.log(filteredArtObject);
     return filteredArtObject;
   },
   checkLocalStorage: function() {
     if (window.localStorage.length != 0) {
-      console.log('ik heb al data');
       router.hide('loader');
       render.overview(data.getLocalStorage());
-      // console.log(keys);
     } else {
       api.requestArtObjects().then(artObjects => {
         render.remove('wrapper');
         const overviewData = data.filterOverview(artObjects);
-        console.log(overviewData);
         data.addToLocalStorage(overviewData);
         router.hide('loader');
         render.overview(overviewData);

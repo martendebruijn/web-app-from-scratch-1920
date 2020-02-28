@@ -43,7 +43,7 @@ Uit de collection API komt de volgende data:
 
 #### Example response Collection API
 
-```
+```json
 {
   "elapsedMilliseconds": 0,
   "count": 3491,
@@ -86,7 +86,7 @@ Uit de collection API komt de volgende data:
 
 Na het verkrijgen van deze data wordt de data gefilterd zodat onderstaand over blijft:
 
-```
+```json
 "0": [
         id: "SK-A-2963"
         title: "Portret van Don Ramón Satué"
@@ -101,7 +101,7 @@ Na het verkrijgen van deze data wordt de data gefilterd zodat onderstaand over b
 
 Uit de collection detail API komt de volgende data:
 
-```
+```json
 {
   "elapsedMilliseconds": 219,
   "artObject": {
@@ -264,7 +264,7 @@ Uit de collection detail API komt de volgende data:
 
 Na het verkrijgen van deze data wordt de data gefilterd zodat onderstaand over blijft:
 
-```
+```json
 0: [
         id: "SK-A-3948"
         title: "Portret van een lid van de familie Van der Mersch"

@@ -306,7 +306,7 @@ Lijst van bronnen die ik heb benaderd. De urls staan ook in comments in de code 
 5. [Get closest number out of array](https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array)
 6. [CSS loader](https://loading.io/css/)
 
-## Future Whislist
+## Future Whishlist
 
 - [ ] Styling!
 - [ ] Gerelateerde kunstwerken zien

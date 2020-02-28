@@ -315,4 +315,6 @@ Lijst van bronnen die ik heb benaderd. De urls staan ook in comments in de code 
 - [ ] Filteren op basis van het type object
 - [ ] Gerelateerde kunstenaars laten zien
 - [ ] Navigatie naar de Rijksmuseum Studio website
+- [ ] ChooseColor render in de HTML zetten (is niet dynamisch)
+- [ ] Code efficienter schrijven / meer DRY maken 
 

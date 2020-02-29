@@ -9,6 +9,9 @@ body {
   align-items: center;
   padding: 1em;
 }
+body > div {
+  max-width: 638px;
+}
 h1 {
   font-size: 2em;
   font-weight: 700;
@@ -201,3 +204,8 @@ input[type=range]::-moz-range-thumb {
     transform: rotate(360deg);
   }
 }
+
+    @media only screen and (min-width: 638px) {
+
+    }
+  

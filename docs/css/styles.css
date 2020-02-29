@@ -16,6 +16,17 @@ h1 {
 p {
   font-size: 1em;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+#backBtn {
+  appearance: none;
+    -webkit-appearance: none;
+  border: none;
+  align-self: flex-start;
+  cursor: pointer;
+}
 #wrapper {
   margin-top: .5em;
   width: 100%;
@@ -99,7 +110,6 @@ input[type=range]::-moz-range-thumb {
   display: none !important;
 }
 .button {
-  text-decoration: none;
   border: 4px solid black;
   height: 45px;
   width: 145px;

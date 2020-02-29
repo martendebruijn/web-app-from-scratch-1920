@@ -1,0 +1,23 @@
+img {
+    max-width: 90%;
+    max-height: 100%;
+}
+h2 {
+    font-weight: 700;
+}
+.card {
+    width: 100%;
+    background: #ededed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+.card > div, .card > img {
+    margin-top: 1em;
+}
+.card > div {
+    margin-bottom: 1em;
+}

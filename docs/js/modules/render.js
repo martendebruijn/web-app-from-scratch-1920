@@ -12,10 +12,9 @@ export const render = {
     const wrapper = document.querySelector('#wrapper');
     wrapper.insertAdjacentHTML(
       'afterbegin',
-      `
-      <p>Ontdek de kunstwerken van het rijksmuseum eens op een andere manier dan je gewend bent.
+      `<p>Ontdek de kunstwerken van het rijksmuseum eens op een andere manier dan je gewend bent.
       Geef hieronder een kleur aan en laat je verassen door de kunst!</p>
-  <div id="chooseColor">
+   <div id="chooseColor">
     <div>
       <div>
         <div>
@@ -50,10 +49,12 @@ export const render = {
     items.forEach(function(item) {
       id.insertAdjacentHTML(
         'afterbegin',
-        `<a href="#${item.id}">
-           <p>${item.title}</p>
-           <p>${item.maker}</p>
-           <img src="${item.imgUrl}" class="overview-img" alt="${item.title}">
+        `<a class="card" href="#${item.id}">
+        <img src="${item.imgUrl}" class="overview-img" alt="${item.title}">
+        <div>
+           <h2>${item.title}</h2>
+           <h3>${item.maker}</h3>
+        </div>
          </a>`
       );
     });

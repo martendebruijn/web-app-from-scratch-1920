@@ -20,6 +20,9 @@ a {
   text-decoration: none;
   color: black;
 }
+i {
+  font-size: 3em;
+}
 #backBtn {
   appearance: none;
     -webkit-appearance: none;

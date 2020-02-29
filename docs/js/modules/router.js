@@ -31,14 +31,18 @@ export const router = {
   //app handler
   handle: function() {
     if (location.hash != '' && location.hash != '#search') {
+      this.show('backBtn');
+      this.hide('title');
       const id = location.hash;
       const removeHash = id.split('#')[1]; //remove hash from id zodat dit id gebruikt kan worden in de api call
       routes.detail(removeHash);
     } else if (location.hash === '#search') {
+      this.show('title');
       this.show('backBtn');
       routes.overview();
     } else {
       this.hide('backBtn');
+      this.show('title');
       routes.chooseColor();
       color.changeAllSliderValues();
     }

@@ -12,38 +12,33 @@ export const render = {
     const wrapper = document.querySelector('#wrapper');
     wrapper.insertAdjacentHTML(
       'afterbegin',
-      `      <h3>
-    *Het Rijksmuseum labelt haar archief in een selectief aantal kleuren,
-    hierdoor kan er niet daadwerkelijk naar iedere kleur gezocht worden. Het
-    dichtsbijzijnde kleur-label wordt gekozen en opgezocht.
-  </h3>
+      `
+      <p>Ontdek de kunstwerken van het rijksmuseum eens op een andere manier dan je gewend bent.
+      Geef hieronder een kleur aan en laat je verassen door de kunst!</p>
   <div id="chooseColor">
     <div>
       <div>
         <div>
-          <p>Rood:</p>
-          <p id="redOutput">0</p>
+          <p id="redOutput" class="d-none">0</p>
           <input id="red" class="color-slider" type="range" min="0" max="255" value="0"/>
         </div>
         <div>
-          <p>Groen:</p>
-          <p id="greenOutput">0</p>
+          <p id="greenOutput" class="d-none">0</p>
           <input id="green" class="color-slider" type="range" min="0" max="255" value="0"/>
         </div>
         <div>
-          <p>Blauw:</p>
-          <p id="blueOutput">0</p>
+          <p id="blueOutput" class="d-none">0</p>
           <input id="blue" class="color-slider" type="range" min="0" max="255" value="0"/>
         </div>
       </div>
       <div>
-        <p>Gekozen kleur:</p>
-        <span class="resultColor color-circle"></span>
+        <p class="d-none">Gekozen kleur:</p>
+        <div class="resultColor color-circle"></div>
       </div>
-      <div>
+      <div class="d-none">
         <p>Gezochte kleur:</p>
-        <span class="searchColor color-circle"></span>
-      </div>
+        <div class="searchColor color-circle"></div>
+      </div> 
     </div>
     <a href="#search" id="searchBtn" class="button">Search</a>
   </div>`

@@ -305,6 +305,8 @@ Lijst van bronnen die ik heb benaderd. De urls staan ook in comments in de code 
 4. [Find closest color in array of colors](https://www.reddit.com/r/learnprogramming/comments/18vjlm/javascript_find_closest_color_in_an_array_of/)
 5. [Get closest number out of array](https://stackoverflow.com/questions/8584902/get-closest-number-out-of-array)
 6. [CSS loader](https://loading.io/css/)
+7. [Codepen - Rainbow gradient background animation - Milan Nohejl](https://codepen.io/nohoid/pen/kIfto)
+8. [Codepen - Material Design Box Shadows - Samuel Thornton](https://codepen.io/sdthornton/pen/wBZdXq)
 
 ## Future Whishlist
 

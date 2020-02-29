@@ -1,0 +1,16 @@
+.f-start {
+    align-self: flex-start;
+}
+.detail-img {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+#colorWrapper {
+    width: 100%;
+}
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+  }

@@ -32,7 +32,7 @@ export const render = {
       </div>
       <div>
         <p class="d-none">Gekozen kleur:</p>
-        <div class="resultColor color-circle"></div>
+        <div class="resultColor color-box"></div>
       </div>
       <div class="d-none">
         <p>Gezochte kleur:</p>
@@ -74,14 +74,15 @@ export const render = {
     // insert art object in the wrapper div
     wrapper.insertAdjacentHTML(
       'afterbegin',
-      '<p>' +
+      '<h1 class="f-start">' +
         artObject.title +
-        '</p>' +
-        `<img src="${artObject.imgUrl}" class="detail-img" alt="${artObject.title}">
-         <p>${artObject.type}</p>
-         <p>${artObject.maker}</p>
-         <p>${artObject.date}</p>
-         <div id="colorWrapper"></div>`
+        '</h1>' +
+        `<img src="${artObject.imgUrl}" class="detail-img f-start" alt="${artObject.title}">
+        <p class="bold f-start">${artObject.maker}</p>
+         <p class="f-start">${artObject.type}</p>
+         
+         <p class="f-start">${artObject.date}</p>
+         <div id="colorWrapper" class="f-start"></div>`
     );
 
     artObject.colors.forEach(color => render.colorCircle(color)); //creeer een circle voor iedere kleur

@@ -310,7 +310,7 @@ Lijst van bronnen die ik heb benaderd. De urls staan ook in comments in de code 
 
 ## Future Whishlist
 
-- [ ] Styling!
+- [ x ] Styling!
 - [ ] Gerelateerde kunstwerken zien
 - [ ] Gebruiker laten kiezen hoeveel resultaten getoond worden
 - [ ] Navigeren door op de kleuren te drukken op de detail pagina
